@@ -1,0 +1,60 @@
+.b{
+    font-size: larger;
+    border: 2px solid red;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    display: flex;
+    justify-content:space-around;
+  
+}
+
+.nav_main{
+  position: sticky;
+    top: 0;
+    background-color:#F4ACB7;
+    z-index: 10000;
+}
+
+.active {
+    color: red;
+    font-size: 30px;
+    /* padding: 10rem; */
+    text-decoration: none;
+  }
+  
+  .default {
+    color: black;
+    font-size: 30px;
+    /* padding: 10 rem; */
+    text-decoration: none;
+  }
+  
+
+  .form{
+    border: 1px solid red;
+    width: 30%;
+    height: 340px;
+    margin:auto;
+    padding: 20px;
+    margin-top:70px;
+    background-color: brown;
+    border-radius: 14px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    
+  }
+  label{
+    font-weight: bold;
+    font-size: 20px;
+    /* margin-top: 30px;; */
+  }
+ 
+
+  .main{
+    background-image: url("https://st2.depositphotos.com/1420973/6409/i/450/depositphotos_64095317-stock-photo-blog-concept-cloud-chart-print.jpg");
+    height: 670px;
+    background-repeat: no-repeat;
+   background-size:100%;
+  }
+
+  .blog_main{
+    background-color:burlywood;
+  }
