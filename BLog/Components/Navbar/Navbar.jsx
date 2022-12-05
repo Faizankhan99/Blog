@@ -4,9 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import style from "../../Components/Nav.module.css";
 import { Logout } from "../Store/Auth/Auth.action";
+import jwt_decode from "jwt-decode";
 
 export default function Navbar() {
   const token = useSelector((store) => store.auth.token);
+  if (token) {
+    const verify = jwt_decode(token);
+  }
+  // console.log(verify);
+  // verify.role=
   const dispatch = useDispatch();
   const nav = [
     { id: 1, title: "ALLBLOG", to: "/" },
@@ -32,6 +38,18 @@ export default function Navbar() {
             {elem.title}
           </NavLink>
         ))}
+        {/* {verify.role == "admin"? (
+          <NavLink
+            to="all"
+            className={({ isActive }) =>
+              !isActive ? style.active : style.default
+            }
+          >
+            ALL USERS
+          </NavLink>
+        ) : (
+          ""
+        )} */}
         <Button onClick={handlelogout} disabled={!token}>
           LOGOUT
         </Button>

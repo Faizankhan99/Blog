@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { ADDBLOGS } from "../ADDBLOG/ADDBLOGS";
+import Alluser from "../AllUser/Alluser";
 import Login from "../Login/Login";
 import Posts from "../Post/Posts";
 import { Private } from "../Private/Private";
@@ -20,6 +21,7 @@ export default function Allroutes() {
         />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/all" element={<Alluser />} />
         <Route
           path="/addblog"
           element={

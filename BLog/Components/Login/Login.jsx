@@ -5,6 +5,7 @@ import {
   Input,
   InputGroup,
   InputRightElement,
+  Select,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import style from "../../Components/Nav.module.css";
@@ -17,6 +18,7 @@ import { useEffect } from "react";
 const user = {
   email: "",
   password: "",
+  role: "",
 };
 
 export default function Login() {
@@ -48,7 +50,7 @@ export default function Login() {
       navigate("/");
     }
   }, [token]);
-
+  console.log(data);
   return (
     <Box className={style.main}>
       <Heading marginLeft="45%">LOGIN </Heading>
@@ -79,6 +81,16 @@ export default function Login() {
               </Button>
             </InputRightElement>
           </InputGroup>
+          <Select
+            placeholder="Select option"
+            mt="20px"
+            onChange={handleform}
+            value={data.role}
+            name="role"
+          >
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+          </Select>
           <Input type="submit" mt="20px" bgColor="white" />
         </form>
       </Box>
