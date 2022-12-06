@@ -7,12 +7,8 @@ import { Logout } from "../Store/Auth/Auth.action";
 import jwt_decode from "jwt-decode";
 
 export default function Navbar() {
-  const token = useSelector((store) => store.auth.token);
-  if (token) {
-    const verify = jwt_decode(token);
-  }
-  // console.log(verify);
-  // verify.role=
+  const { role, token } = useSelector((store) => store.auth);
+  // console.log(role);
   const dispatch = useDispatch();
   const nav = [
     { id: 1, title: "ALLBLOG", to: "/" },
@@ -38,7 +34,7 @@ export default function Navbar() {
             {elem.title}
           </NavLink>
         ))}
-        {/* {verify.role == "admin"? (
+        {role == "admin" ? (
           <NavLink
             to="all"
             className={({ isActive }) =>
@@ -49,7 +45,7 @@ export default function Navbar() {
           </NavLink>
         ) : (
           ""
-        )} */}
+        )}
         <Button onClick={handlelogout} disabled={!token}>
           LOGOUT
         </Button>

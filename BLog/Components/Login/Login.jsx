@@ -50,7 +50,7 @@ export default function Login() {
       navigate("/");
     }
   }, [token]);
-  console.log(data);
+  // console.log(data);
   return (
     <Box className={style.main}>
       <Heading marginLeft="45%">LOGIN </Heading>

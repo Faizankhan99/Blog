@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import style from "../AllUser/user.module.css";
-import jwt_decode from "jwt-decode";
 
 function fetch() {
   return axios.get("http://localhost:8080/user");
@@ -16,7 +15,7 @@ export default function Alluser() {
 
   useEffect(() => {
     handleuser();
-  }, []);
+  }, [users]);
 
   function handleuser() {
     fetch().then((res) => {
@@ -38,7 +37,6 @@ export default function Alluser() {
       .catch((err) => {
         console.log(err);
       });
-    handleuser();
   }
 
   //   console.log(users);

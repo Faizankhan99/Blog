@@ -34,7 +34,7 @@ app.post("/signup", async(req, res) => {
         if (user) {
             res.send({status:false,message:"Email already exists" })
         } else {
-            const userdata = await User.create({ name, email, password,role:"user"  })
+            const userdata = await User.create({ name, email, password,role:"user"})
             res.send({status:true,message:"User created succefully", userdata })    
         }
     } catch (err) {
@@ -56,9 +56,9 @@ app.post("/login", async(req, res) => {
 
     const token = jwt.sign({ id: user._id,email:user.email,role:user.role }, "SECRET1234", { expiresIn: "8 hours" });
     if (user.role == "admin") {
-        res.send({ message: "Admin successfully Login", token })  
+        res.send({ message: "Admin successfully Login", token ,role:user.role})  
     } else {
-        res.send({ message: "Login success", token })  
+        res.send({ message: "Login success", token,role:user.role })  
 
      }
 
@@ -78,15 +78,15 @@ app.delete("/:id", async(req, res) => {
             res.send("Unauthorized Doesn't provide token")
         }
         else {
-            // let verify = jwt.verify(token, "SECRET1234")
-            // let check = jwt.decode(token)
-            // console.log(check)
-            // if (check.role=="admin") {
+            let verify = jwt.verify(token, "SECRET1234")
+            let check = jwt.decode(token)
+            console.log(check)
+            if (check.role=="admin") {
                 const user = await User.deleteOne({ _id:id })
                 res.send(user)
-            // } else {
-            //     res.send("You don't have permission to delete")
-            // }
+            } else {
+                res.send("You don't have permission to delete")
+            }
         }
     } catch (err) {
         res.send(err.message)
