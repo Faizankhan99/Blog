@@ -54,9 +54,6 @@ export default function Signup() {
     if (api.status == true) {
       navigate("/");
     }
-    // else {
-    //   alert(api.message);
-    // }
   }, [api]);
 
   return (

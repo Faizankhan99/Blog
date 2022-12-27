@@ -29,7 +29,6 @@ export const AuthReducer = (state = initialState, { type, payload }) => {
                 role:payload.role,
                 token: payload.token
             }
- 
         }
         case Auth_failed: {
             return {

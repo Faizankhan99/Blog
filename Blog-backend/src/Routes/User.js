@@ -46,10 +46,10 @@ app.post("/signup", async(req, res) => {
 
 
 app.post("/login", async(req, res) => {
-    const { email, password,role} = req.body;
-
+    const { email, password, role } = req.body;
+    
     try {
-        let user = await User.findOne({ email,password,role })
+        let user = await User.findOne({email,password,role})
         if (!user) {
           return  res.status(401).send("User Not exist")
         }
@@ -65,8 +65,6 @@ app.post("/login", async(req, res) => {
     } catch (err) {
         res.send(err.message)
           }
-
-
 })
 
 
