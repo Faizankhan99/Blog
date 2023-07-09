@@ -1,13 +1,15 @@
-const { mongoose, model, Schema } =require("mongoose")
+const { mongoose, model, Schema } = require("mongoose");
 
-const BlogData = new Schema({
+const BlogData = new Schema(
+  {
     title: { type: "String", required: true },
     body: { type: "String", require: true },
-    date:{type:"string"},
+    date: { type: "string" },
     author: { type: "String", required: true },
-    imgUrl:{ type: "String",},
+    imgUrl: { type: "String" },
+  },
+  { timestamps: true }
+);
 
-})
-
-const Blog = model("blog",BlogData)
-module.exports = Blog
+const Blog = model("blog", BlogData);
+module.exports = Blog;

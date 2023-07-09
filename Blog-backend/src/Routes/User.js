@@ -6,6 +6,7 @@ const app = Router()
 app.get("/", async(req, res) => {
     const userdata =await User.find({})
     res.send(userdata)
+    
 })
 
 // app.get("/:id", async(req, res) => {
@@ -43,6 +44,9 @@ app.post("/signup", async(req, res) => {
     }
 
 })
+
+
+
 
 
 app.post("/login", async(req, res) => {
